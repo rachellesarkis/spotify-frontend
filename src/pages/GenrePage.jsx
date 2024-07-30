@@ -10,14 +10,20 @@ export const GenrePage = () => {
 
   useEffect(() => {
     const fetchGenres = async () => {
-      try {
-        const data = await getGenres();
-        setGenres(data);
-        console.log(data);
-      } catch (err) {
-        setError("Failed to fetch genres");
-      } finally {
+      const storedGenres = localStorage.getItem("genres");
+      if (storedGenres) {
+        setGenres(JSON.parse(storedGenres));
         setLoading(false);
+      } else {
+        try {
+          const data = await getGenres();
+          setGenres(data);
+          localStorage.setItem("genres", JSON.stringify(data));
+        } catch (err) {
+          setError("Failed to fetch genres");
+        } finally {
+          setLoading(false);
+        }
       }
     };
 

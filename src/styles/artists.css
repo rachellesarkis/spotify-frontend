@@ -102,3 +102,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.artists-not-found {
+  color: #b3b3b3;
+  font-family: Raleway;
+  font-size: 26px;
+  font-weight: 700;
+}

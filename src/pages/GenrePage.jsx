@@ -8,6 +8,7 @@ export const GenrePage = () => {
   const [genres, setGenres] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [genreLoading, setGenreLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,6 +34,7 @@ export const GenrePage = () => {
   }, []);
 
   const handleGenreClick = async (genre) => {
+    setGenreLoading(true);
     try {
       const storedArtists = localStorage.getItem("genreArtists");
       let genreArtists = storedArtists ? JSON.parse(storedArtists) : [];
@@ -47,6 +49,8 @@ export const GenrePage = () => {
       }
     } catch (err) {
       setError("Failed to fetch artists");
+    } finally {
+      setGenreLoading(false);
     }
   };
 
@@ -68,6 +72,11 @@ export const GenrePage = () => {
               </button>
             ))}
           </div>
+        </div>
+      )}
+      {genreLoading && (
+        <div className="genre-loading-overlay">
+          <div className="genre-loading-spinner" />
         </div>
       )}
     </div>

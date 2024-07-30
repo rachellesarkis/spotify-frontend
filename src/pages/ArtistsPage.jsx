@@ -34,6 +34,10 @@ export const ArtistsPage = () => {
     navigate("/");
   };
 
+  const navigateToChatPage = (artistId) => {
+    navigate(`/chat/${encodeURIComponent(artistId)}`);
+  };
+
   return (
     <div className="artists-page">
       <div className="artists-navbar">
@@ -43,11 +47,19 @@ export const ArtistsPage = () => {
         <h1 className="artists-title">Genre / {capitalizeEachLetter(genre)}</h1>
       </div>
       <div className="artists-list">
-        {artists.map((artist, index) => (
-          <div key={index} className="artist-card">
-            <ArtistCard artist={artist} />
-          </div>
-        ))}
+        {artists.length > 0 ? (
+          artists.map((artist, index) => (
+            <div
+              key={index}
+              className="artist-card"
+              onClick={() => navigateToChatPage(artist.id)}
+            >
+              <ArtistCard artist={artist} />
+            </div>
+          ))
+        ) : (
+          <p className="artists-not-found">No artists found for this genre.</p>
+        )}
       </div>
     </div>
   );

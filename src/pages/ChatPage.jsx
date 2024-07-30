@@ -1,5 +1,8 @@
+import { useParams } from "react-router-dom";
+
 import "../styles/chat.css";
 
 export const ChatPage = () => {
-  return <div>ChatPage</div>;
+  const { artistId } = useParams();
+  return <div>{artistId}</div>;
 };

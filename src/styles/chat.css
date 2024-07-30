@@ -1,0 +1,61 @@
+.chat-navbar {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #363636;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+}
+
+.chat-artist-image {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 20px;
+}
+
+.chat-navigate-back {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+  .chat-navigate-back {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+}
+
+.chat-artist-name {
+  font-family: Raleway;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 30.52px;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.chat-artist-followers {
+  font-family: Raleway;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 17.61px;
+  color: #b3b3b3;
+}
+
+.chat-artist-popularity {
+  font-family: Raleway;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 17.61px;
+  color: #69d8f7;
+  background-color: #0d3d45;
+  padding: 3px 7px 4px 7px;
+  border-radius: 3px;
+  height: fit-content;
+  margin-left: 15px;
+  margin-top: 3px;
+}

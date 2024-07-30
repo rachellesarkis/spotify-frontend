@@ -18,6 +18,8 @@
 @media only screen and (min-width: 768px) {
   .genre-container {
     margin: 100px;
+    max-height: 60vh;
+    overflow-y: auto;
   }
 }
 

@@ -34,8 +34,15 @@ export const ArtistsPage = () => {
     navigate("/");
   };
 
-  const navigateToChatPage = (artistId) => {
-    navigate(`/chat/${encodeURIComponent(artistId)}`);
+  const navigateToChatPage = (artist) => {
+    localStorage.setItem("artistToChat", JSON.stringify(artist));
+    navigate(`/chat/${encodeURIComponent(artist.id)}`);
+  };
+
+  const handleKeyDown = (event, artist) => {
+    if (event.key === "Enter") {
+      navigateToChatPage(artist);
+    }
   };
 
   return (
@@ -52,7 +59,9 @@ export const ArtistsPage = () => {
             <div
               key={index}
               className="artist-card"
-              onClick={() => navigateToChatPage(artist.id)}
+              onClick={() => navigateToChatPage(artist)}
+              tabIndex={0}
+              onKeyDown={(event) => handleKeyDown(event, artist)}
             >
               <ArtistCard artist={artist} />
             </div>

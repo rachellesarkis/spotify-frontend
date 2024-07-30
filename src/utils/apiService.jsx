@@ -16,3 +16,18 @@ export const getGenres = async () => {
     throw error;
   }
 };
+
+export const getArtistsByGenre = async (genre) => {
+  try {
+    const response = await apiClient.get(
+      `/artists/${encodeURIComponent(genre)}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(
+      `Error fetching artists for genre "${genre}":`,
+      error.message
+    );
+    throw error;
+  }
+};

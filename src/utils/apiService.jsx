@@ -31,3 +31,36 @@ export const getArtistsByGenre = async (genre) => {
     throw error;
   }
 };
+
+export const sendMessage = async (
+  userId,
+  artistId,
+  artistName,
+  userMessage
+) => {
+  try {
+    const response = await apiClient.post("/chats", {
+      userId,
+      artistId,
+      artistName,
+      userMessage,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error sending message:",
+      error.response ? error.response.data : error.message
+    );
+    throw error;
+  }
+};
+
+export const getChatHistory = async (userId, artistId) => {
+  try {
+    const response = await apiClient.get(`/chats/${artistId}/${userId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching chat history:", error.message);
+    throw error;
+  }
+};

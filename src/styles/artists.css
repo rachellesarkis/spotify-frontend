@@ -1,5 +1,7 @@
 .artists-page {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .artists-navbar {
@@ -41,11 +43,12 @@
   justify-content: center;
   gap: 30px;
   padding: 50px 30px;
+  flex: 1;
 }
 
 @media only screen and (min-width: 768px) {
   .artists-list {
-    padding: 154px 150px;
+    padding: 150px 130px;
   }
   .artists-navigate-back {
     left: 60px;
